@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light dark;}body{margin:0;font-family:system-ui,sans-serif;font-size:14px;}img{max-width:100%;}[hidden]{display:none!important}</style>
+<title>シルバーウィーク山旅ランキング</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --surface:#ffffff; --surface2:#ecebe4; --ink:#22271f; --muted:#6b6f63; --line:#d9d7cd;
+  --accent:#2f5d50; --accent-ink:#ffffff;
+  --good:#3a7d44; --mid:#c6902b; --bad:#b0463a; --dot-off:#d5d3c8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1e1a; --surface:#242823; --surface2:#2d322c; --ink:#ecebe3; --muted:#a3a79b; --line:#3a3f38;
+    --accent:#7fb8a4; --accent-ink:#13201b;
+    --good:#7cc684; --mid:#e0b25a; --bad:#e07d70; --dot-off:#3f453d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1e1a; --surface:#242823; --surface2:#2d322c; --ink:#ecebe3; --muted:#a3a79b; --line:#3a3f38;
+  --accent:#7fb8a4; --accent-ink:#13201b;
+  --good:#7cc684; --mid:#e0b25a; --bad:#e07d70; --dot-off:#3f453d;
+}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New",system-ui,-apple-system,"Hiragino Sans",sans-serif;font-size:15px;line-height:1.6;padding:0 16px 48px;}
+.wrap{max-width:1040px;margin:0 auto;}
+header{padding-block:32px 20px;border-bottom:2px solid var(--accent);margin-bottom:20px;}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase;}
+h1{font-family:"Shippori Mincho","Hiragino Mincho ProN",serif;font-weight:800;font-size:clamp(24px,4vw,34px);margin:6px 0 8px;line-height:1.25;text-wrap:balance;}
+.lead{color:var(--muted);max-width:60ch;margin:0;}
+.stamp{margin-top:12px;font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;}
+.alert{margin:0 0 18px;padding:12px 16px;border-left:4px solid var(--mid);background:var(--surface);border-radius:0 8px 8px 0;font-size:14px;}
+.alert b{color:var(--ink);}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--muted);margin:0 0 18px;}
+.legend span{display:inline-flex;align-items:center;gap:6px;}
+.pip{width:10px;height:10px;border-radius:50%;display:inline-block;}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);}
+table{border-collapse:collapse;width:100%;min-width:780px;font-variant-numeric:tabular-nums;}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);}
+th{font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:700;background:var(--surface2);white-space:nowrap;}
+tbody tr:last-child td{border-bottom:none;}
+td.rank{font-family:"Shippori Mincho",serif;font-weight:800;font-size:20px;color:var(--accent);width:40px;}
+td.name{font-weight:700;white-space:nowrap;}
+td.name small{display:block;font-weight:400;color:var(--muted);font-size:12px;white-space:normal;max-width:26ch;}
+.mv{display:inline-block;font-size:11px;color:var(--muted);font-weight:400;margin-left:6px;}
+.dots{display:inline-flex;gap:3px;}
+.dots i{width:11px;height:11px;border-radius:50%;background:var(--dot-off);display:inline-block;}
+.dots[data-s="5"] i:nth-child(-n+5),.dots[data-s="4"] i:nth-child(-n+4){background:var(--good);}
+.dots[data-s="3"] i:nth-child(-n+3){background:var(--mid);}
+.dots[data-s="2"] i:nth-child(-n+2),.dots[data-s="1"] i:nth-child(1){background:var(--bad);}
+td.total{font-weight:700;color:var(--accent);white-space:nowrap;}
+.tier{font-size:11px;color:var(--muted);font-weight:400;}
+.ng td{opacity:.6;}
+h2{font-family:"Shippori Mincho",serif;font-weight:800;font-size:22px;margin:40px 0 6px;}
+.sub{color:var(--muted);margin:0 0 16px;font-size:14px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;}
+.card.top{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent);}
+.card h3{margin:0;font-size:18px;display:flex;align-items:baseline;gap:10px;}
+.card h3 .no{font-family:"Shippori Mincho",serif;color:var(--accent);font-size:22px;}
+.pros{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-size:12px;padding:2px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);}
+.tag.g{color:var(--good);border-color:var(--good);}
+.tag.b{color:var(--bad);border-color:var(--bad);}
+.tag.m{color:var(--mid);border-color:var(--mid);}
+.days{display:grid;gap:10px;}
+.day{background:var(--surface2);border-radius:8px;padding:10px 12px;font-size:13.5px;}
+.day b{display:block;color:var(--accent);font-size:12px;letter-spacing:.08em;margin-bottom:4px;}
+.day ol{margin:0;padding-left:18px;}
+.day li{margin:2px 0;}
+.inn{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;}
+.inn b{color:var(--ink);}
+.note{margin-top:32px;padding:14px 16px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--muted);}
+.note ul{margin:6px 0 0;padding-left:18px;}
+@media (max-width:600px){ td.name{white-space:normal;} }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Silver Week 2026 · 9/22 (火) → 9/23 (水・祝)</div>
+  <h1>シルバーウィーク山旅ランキング</h1>
+  <p class="lead">東京発1泊2日・2名・「片日は自然歩き、片日はゆっくり温泉」。台風25号通過後の山の天気、現地の混雑、宿の空き、台風被害リスク、移動の楽さを5段階で採点。</p>
+  <div class="stamp"><span>更新：9/21（月）16:45 時点の公式情報</span><span>登山指数：てんきとくらす 16時発表（A=登山日和／B=やや注意／C=不向き）</span><span>宿：じゃらん 9/22・2名・2食付の実在庫（16:35）</span></div>
+</header>
+
+<div class="alert">
+  <b>16時の変化点</b>　台風は今夜房総沖を通過、22日朝には三陸はるか沖へ。<b>23日の登山指数が車山でCからAに好転</b>、乗鞍もB、安達太良もA。一方で宿が動き、<b>乗鞍のベルグハウス・やまぶき、渋御殿湯、日光湯元・尾瀬戸倉、那須の候補宿は満室</b>に。あずさの22日計画運休は発表なし（NEXCO中日本は「中央道・東名の同時通行止めの可能性」を明記）。
+</div>
+
+<div class="legend">
+  <span><i class="pip" style="background:var(--good)"></i>4〜5 良い</span>
+  <span><i class="pip" style="background:var(--mid)"></i>3 ふつう</span>
+  <span><i class="pip" style="background:var(--bad)"></i>1〜2 弱点</span>
+  <span>合計は6項目30点満点。順位は「案が成立するか」を優先</span>
+</div>
+
+<div class="tablewrap">
+<table>
+<thead><tr>
+<th>順</th><th>案</th><th>22日の山天気</th><th>23日の山天気</th><th>混雑の少なさ</th><th>宿（空き×質）</th><th>台風後の安全</th><th>移動の楽さ</th><th>合計</th>
+</tr></thead>
+<tbody>
+<tr><td class="rank">1</td><td class="name">車山・霧ヶ峰<span class="mv">↑2位から</span><small>22日9時以降A、23日もA。どちらの日に登ってもよい</small></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">28</td></tr>
+<tr><td class="rank">2</td><td class="name">松本・美ヶ原<span class="mv">↓1位から</span><small>両日A。宿が2軒のみで差がついた</small></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">25</td></tr>
+<tr><td class="rank">3</td><td class="name">北八ヶ岳・蓼科<span class="mv">→</span><small>22日A、23日C。渋御殿湯が満室になり宿は1軒</small></td>
+<td><span class="dots" data-s="5"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">21</td></tr>
+<tr><td class="rank">4</td><td class="name">白馬・八方池<span class="mv">↑5位から</span><small>22日12時以降A、23日C・雨70%。宿4軒</small></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="1"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">18</td></tr>
+<tr><td class="rank">5</td><td class="name">乗鞍高原・畳平<span class="mv">↑6位から</span><small>22日終日A、23日B。宿は2軒（簡素）</small></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">17</td></tr>
+<tr><td class="rank">6</td><td class="name">上高地・中の湯<span class="mv">↓4位から</span><small>散策のみ。中の湯 残1室・57,200円</small></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">17</td></tr>
+<tr><td class="rank">7</td><td class="name">裏磐梯・安達太良<span class="mv">↑9位から</span><small>23日A。ただし猪苗代は雨70%、遠い</small></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">17</td></tr>
+<tr class="ng"><td class="rank">8</td><td class="name">日光白根・尾瀬戸倉<span class="mv">→</span><small>22日9時以降A・23日C。候補宿2軒とも満室</small></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="1"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">16 <span class="tier">宿なし</span></td></tr>
+<tr class="ng"><td class="rank">9</td><td class="name">木曽駒・千畳敷<span class="mv">↓7位から</span><small>22日終日Aだが到着後は往復不可、23日C。宿は2食付なし</small></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="1"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="1"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="4"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">14 <span class="tier">宿なし</span></td></tr>
+<tr class="ng"><td class="rank">10</td><td class="name">那須・茶臼岳<span class="mv">→</span><small>22日は18時までC、23日C。候補宿2軒とも満室</small></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="2"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="1"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="1"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td><span class="dots" data-s="3"><i></i><i></i><i></i><i></i><i></i></span></td>
+<td class="total">11 <span class="tier">宿なし</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="sub" style="margin-top:8px">5〜7位は同点17ですが、23日に登れる可能性（乗鞍B）、案の成立の確実さ（上高地は宿が残1）、移動距離と23日の雨（裏磐梯）で順に並べています。8〜10位は2食付きの宿が確保できず、現時点では成立しません。</p>
+
+<h2>トップ5の概略スケジュール</h2>
+<p class="sub">行き帰りは公共交通、現地は必要な案だけレンタカー。行きは「あずさが1本遅れても成立する」余裕を入れています。</p>
+
+<div class="cards">
+<div class="card top">
+  <h3><span class="no">1</span>車山・霧ヶ峰</h3>
+  <div class="pros"><span class="tag g">両日 登山指数A</span><span class="tag g">宿5軒・4.8点あり</span><span class="tag g">帰りが早い</span><span class="tag m">ビーナスライン雨量規制に注意</span></div>
+  <div class="days">
+    <div class="day"><b>9/22（火）ゆっくり</b><ol><li>9時台 新宿発あずさ → 11:10頃 茅野、駅前レンタカー</li><li>諏訪大社上社・諏訪湖畔で昼食</li><li>14:00 ビーナスラインで車山高原へ → 15:00 宿、温泉・フルコース</li></ol></div>
+    <div class="day"><b>9/23（水・祝）自然</b><ol><li>8:00 車山肩 → 車山山頂 → 蝶々深山 → 八島湿原 周回 3.5h（指数A）</li><li>12:00 下山、昼食</li><li>14:00 茅野返却 → 14時台あずさ → 16:40頃 新宿</li></ol></div>
+  </div>
+  <div class="inn"><b>宿</b>　ローザンヌ 38,000円（残2）／ギャラクシー 43,600円（残2）／ボヌール 41,800円（残1）／ドレミファン！20,900円（残1）／アゲイン 41,420円（残1）　※22日午後もAなので、到着後に登って23日ゆっくりに入れ替えも可</div>
+</div>
+
+<div class="card">
+  <h3><span class="no">2</span>松本・美ヶ原</h3>
+  <div class="pros"><span class="tag g">両日 登山指数A</span><span class="tag g">台風リスク低</span><span class="tag b">宿が2軒のみ</span></div>
+  <div class="days">
+    <div class="day"><b>9/22（火）ゆっくり</b><ol><li>9時台 新宿発あずさ → 11:40頃 松本、駅前レンタカー</li><li>松本城・縄手通りで昼食</li><li>15:00 浅間温泉にチェックイン、温泉</li></ol></div>
+    <div class="day"><b>9/23（水・祝）自然</b><ol><li>8:00 宿発 → 9:00 美ヶ原自然保護センター</li><li>王ヶ頭〜王ヶ鼻 高原歩き 2.5h（平坦・北アルプス一望）</li><li>道の駅美ヶ原で昼食 → 14:30 松本返却 → 15時台あずさ → 17:40頃 新宿</li></ol></div>
+  </div>
+  <div class="inn"><b>宿</b>　尾上の湯旅館 37,400円（残2）／オーベルジュ銀のテラス 39,600円（残1）</div>
+</div>
+
+<div class="card">
+  <h3><span class="no">3</span>北八ヶ岳・蓼科</h3>
+  <div class="pros"><span class="tag g">宿が安く4.6点</span><span class="tag g">短時間で登れる</span><span class="tag b">宿は1軒・残1</span><span class="tag m">あずさ遅延に弱い</span></div>
+  <div class="days">
+    <div class="day"><b>9/22（火）自然</b><ol><li>8時台 新宿発あずさ → 10:10頃 茅野 → バス1h</li><li>11:45 北八ヶ岳ロープウェイ → 坪庭〜北横岳 2.5h（A）</li><li>15:00 ドレミファン！（徒歩10分）、貸切温泉</li></ol></div>
+    <div class="day"><b>9/23（水・祝）ゆっくり</b><ol><li>茅野でレンタカー → 御射鹿池・横谷渓谷（乙女滝まで軽く）</li><li>蓼科湖で昼食</li><li>14:30 返却 → 15時台あずさ → 17:15頃 新宿</li></ol></div>
+  </div>
+  <div class="inn"><b>宿</b>　絶景の宿ドレミファン！ 20,900円（残1）　※渋御殿湯は満室に。取れなければ1位の車山高原の宿に泊まり、22日に北横岳を登る組み合わせも可</div>
+</div>
+
+<div class="card">
+  <h3><span class="no">4</span>白馬・八方池</h3>
+  <div class="pros"><span class="tag g">宿4軒・4.7〜4.8点</span><span class="tag b">23日 雨70%</span><span class="tag b">到着遅れで不成立</span></div>
+  <div class="days">
+    <div class="day"><b>9/22（火）自然</b><ol><li>7時台 新宿発（白馬直通あずさ、無ければ松本乗換）→ 11:00頃 白馬</li><li>12:30 八方ゴンドラ（13時までに開始）→ 八方池往復 2.5h（12時以降A）、下りリフト最終16:30</li><li>17:00 八方温泉の宿</li></ol></div>
+    <div class="day"><b>9/23（水・祝）ゆっくり</b><ol><li>宿の温泉 → 大出公園・白馬の里散策（雨具）</li><li>昼食 → 14:00頃 白馬発 → 18:30頃 新宿</li></ol></div>
+  </div>
+  <div class="inn"><b>宿</b>　樅の木ホテル 44,800円（残1）／檪 47,300円（残1）／ホテルさいとう 46,000円（残1）／丸金旅館 39,600円（余裕あり）　※五龍館は満室に</div>
+</div>
+
+<div class="card">
+  <h3><span class="no">5</span>乗鞍高原・畳平</h3>
+  <div class="pros"><span class="tag g">22日終日A・23日B</span><span class="tag m">畳平バスは往復予約必須</span><span class="tag b">宿は簡素な2軒</span><span class="tag b">帰りが遅い</span></div>
+  <div class="days">
+    <div class="day"><b>9/22（火）ゆっくり</b><ol><li>8時台 新宿発あずさ → 10:40頃 松本 → 上高地線＋路線バス</li><li>12:45 乗鞍高原、善五郎の滝・牛留池の散策 2h</li><li>16:00 宿、白濁の温泉</li></ol></div>
+    <div class="day"><b>9/23（水・祝）自然</b><ol><li>7:00 観光センター発 畳平バス（予約便）</li><li>8:00 畳平 → 剣ヶ峰3026m 往復 3h（指数B・風を見て富士見岳のみに短縮可）</li><li>11:30 畳平発 → 昼食 → 13:45 バス → 松本 → 16時台あずさ → 18:40頃 新宿</li></ol></div>
+  </div>
+  <div class="inn"><b>宿</b>　さつ木荘 24,200円（残2、バス・トイレなし）／しろがね（白骨）27,500円（残1）　※ベルグハウス・やまぶきは満室に</div>
+</div>
+</div>
+
+<div class="note">
+  <b>出発前に必ず確認（9/22 朝）</b>
+  <ul>
+    <li>JR東日本 運行情報：中央本線・あずさは「22日早朝にかけて遅れ・運休の可能性」（16:20時点で計画運休の発表なし）。新幹線は平常。</li>
+    <li>NEXCO中日本「中央道・東名で同時通行止めの可能性」（21日13時第8報）、長野県松本建設事務所の雨量規制（上高地公園線・乗鞍岳線・ビーナスライン）。</li>
+    <li>各施設の当日運行表示（車山TODAY／北八ヶ岳ロープウェイ／八方アルペンライン／アルピコ交通）は16時時点で「明日」の告知が未掲載。</li>
+    <li>宿は残1〜2室が多く、この日だけで3エリア6軒が満室になりました。長野県宿泊税（1人200円程度）が別途の場合あり。</li>
+  </ul>
+</div>
+</div>
+
+</body>
+</html>

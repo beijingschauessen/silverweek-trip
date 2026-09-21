@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light dark;}body{margin:0;font-family:system-ui,sans-serif;font-size:14px;}img{max-width:100%;}[hidden]{display:none!important}</style>
+<title>レンタカーで行く美ヶ原と車山</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f4f4ef; --surface:#ffffff; --surface2:#ebece4; --ink:#22271f; --muted:#6b6f63; --line:#d8d8cc;
+  --accent:#2f5d50; --accent-soft:#dce9e3; --car:#8a5a2b; --car-soft:#f1e5d6;
+  --walk:#3a7d44; --walk-soft:#dfeede; --stay:#9a4a6a; --stay-soft:#f0dfe6; --warn:#b0463a; --ok:#3a7d44;
+  --sky:#cfe3ea; --hill1:#7fa88a; --hill2:#4f7a5e; --hill3:#2f5d50; --road:#e6c98b; --water:#8fb7c9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1e1a; --surface:#242823; --surface2:#2d322c; --ink:#ecebe3; --muted:#a3a79b; --line:#3a3f38;
+    --accent:#7fb8a4; --accent-soft:#25352f; --car:#d9a86c; --car-soft:#3a2f22;
+    --walk:#7cc684; --walk-soft:#243a27; --stay:#d98bb0; --stay-soft:#3a2530; --warn:#e07d70; --ok:#7cc684;
+    --sky:#22323a; --hill1:#3f5f4a; --hill2:#2f4a3a; --hill3:#7fb8a4; --road:#8a6f3a; --water:#3e6577;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1e1a; --surface:#242823; --surface2:#2d322c; --ink:#ecebe3; --muted:#a3a79b; --line:#3a3f38;
+  --accent:#7fb8a4; --accent-soft:#25352f; --car:#d9a86c; --car-soft:#3a2f22;
+  --walk:#7cc684; --walk-soft:#243a27; --stay:#d98bb0; --stay-soft:#3a2530; --warn:#e07d70; --ok:#7cc684;
+  --sky:#22323a; --hill1:#3f5f4a; --hill2:#2f4a3a; --hill3:#7fb8a4; --road:#8a6f3a; --water:#3e6577;
+}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New",system-ui,-apple-system,"Hiragino Sans",sans-serif;font-size:15px;line-height:1.65;padding:0 16px 56px;}
+.wrap{max-width:980px;margin:0 auto;}
+header{padding-block:32px 18px;border-bottom:2px solid var(--car);margin-bottom:22px;}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--car);font-weight:700;}
+h1{font-family:"Shippori Mincho","Hiragino Mincho ProN",serif;font-weight:800;font-size:clamp(24px,4vw,34px);margin:6px 0 8px;line-height:1.25;text-wrap:balance;}
+.lead{color:var(--muted);max-width:62ch;margin:0;}
+.stamp{margin-top:10px;font-size:12px;color:var(--muted);}
+h2.sec{font-family:"Shippori Mincho",serif;font-weight:800;font-size:22px;margin:30px 0 6px;}
+.sub{color:var(--muted);margin:0 0 14px;font-size:14px;max-width:70ch;}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px;font-variant-numeric:tabular-nums;}
+th,td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+th{font-size:12px;color:var(--muted);background:var(--surface2);white-space:nowrap;}
+tbody tr:last-child td{border-bottom:none;}
+.ok{color:var(--ok);font-weight:700;} .ng{color:var(--warn);font-weight:700;} .un{color:var(--muted);font-weight:700;}
+.pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px;}
+.pick div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13.5px;}
+.pick div.best{border-color:var(--car);box-shadow:0 0 0 2px color-mix(in srgb,var(--car) 22%,transparent);}
+.pick b{display:block;font-size:15px;margin-bottom:4px;}
+.pick .price{font-family:"Shippori Mincho",serif;font-size:22px;color:var(--car);font-weight:800;}
+.pick small{color:var(--muted);display:block;}
+.cost{background:var(--surface2);border-radius:10px;padding:12px 16px;font-size:13.5px;margin-top:14px;}
+.cost table{min-width:0;font-size:13.5px;}
+.cost th,.cost td{padding:5px 8px;border-bottom:1px solid var(--line);background:transparent;}
+section.plan{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 20px 18px;margin-bottom:24px;}
+section.plan.top{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 22%,transparent);}
+.plan h2{font-family:"Shippori Mincho",serif;font-weight:800;font-size:21px;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.plan h2 .stars{font-size:14px;color:var(--accent);letter-spacing:.1em;}
+.plan .why{color:var(--muted);font-size:14px;margin:0 0 12px;max-width:72ch;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.tag{font-size:12px;padding:2px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);}
+.tag.g{color:var(--ok);border-color:var(--ok);} .tag.b{color:var(--warn);border-color:var(--warn);} .tag.m{color:#b58a3a;border-color:#b58a3a;}
+.day{margin-top:12px;}
+.day h3{font-size:15px;margin:0 0 8px;color:var(--accent);letter-spacing:.06em;}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:6px;}
+.tl li{display:grid;grid-template-columns:58px 26px 1fr;gap:8px;align-items:start;}
+.tl .t{font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted);font-size:13px;padding-top:6px;}
+.ic{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-top:3px;}
+.ic svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.ic.car{background:var(--car-soft);color:var(--car);} .ic.walk{background:var(--walk-soft);color:var(--walk);}
+.ic.stay{background:var(--stay-soft);color:var(--stay);} .ic.spot{background:var(--accent-soft);color:var(--accent);}
+.tl .b{background:var(--surface2);border-radius:8px;padding:7px 11px;font-size:14px;}
+.tl .b b{display:block;} .tl .b small{display:block;color:var(--muted);font-size:12.5px;margin-top:1px;}
+.warn{margin-top:12px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;}
+.warn b{color:var(--warn);}
+.note{padding:14px 16px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--muted);}
+.note ul{margin:6px 0 0;padding-left:18px;}
+@media (max-width:480px){ .tl li{grid-template-columns:48px 26px 1fr;} }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">2026.9.22 (火) → 9.23 (水・祝) · 2名 · 全行程レンタカー</div>
+  <h1>レンタカーで行く美ヶ原と車山</h1>
+  <p class="lead">あずさが往復とも満席、茅野のレンタカーも満車だったため、東京で車を確保して往復する前提で行程を組み直しました。まず「レンタカーとカーシェアのどれを使うか」、次に「車ならではの3つの回り方」を示します。</p>
+  <div class="stamp">情報基準：9/21（月）20:00。両日とも登山指数A。あずさ 22日運休発表なし・中央道 通行止めなし。レンタカーは楽天トラベル・トヨタ・ニッポン・オリックス・ニコニコで19:05〜19:30に実照会、カーシェアはタイムズカー公式料金表で試算（空車は会員ログインが必要なため未確認）。予約はしていません。</div>
+</header>
+
+<h2 class="sec">1. どの車を借りるか（9/22 8:00 受取 → 9/23 夜 返却）── レンタカー＋カーシェア</h2>
+<p class="sub">新宿・東京駅・渋谷・池袋周辺の大手レンタカーは、コンパクト〜小型SUVがすべて満車でした（残っていたのは8人乗りミニバンのみ）。空車があったのは格安のニコニコレンタカーと羽田空港の店舗。これに加えて、カーシェア（タイムズカー等）は料金・返却時刻の自由度で有利ですが、空車は会員ログイン後でないと見えません。</p>
+<div class="tw"><table>
+<thead><tr><th>会社・店舗（最寄駅）</th><th>車種</th><th>空車</th><th>2日の料金</th><th>ETC</th><th>返却時刻</th><th>受取の手間</th><th>評価</th></tr></thead>
+<tbody>
+<tr><td><b>タイムズカー（カーシェア）</b> 自宅近くのステーション</td><td>ベーシック：ヤリス／フィット／ノート／ライズ／ヤリスクロス等</td><td class="un">要ログイン（未確認）</td><td>36h 8,800円＋距離20円/km（約9,600円）＋補償550円 ＝ <b>約19,000円・ガソリン込み</b>（48hでも+1,100円）</td><td class="ok">車載器標準（カードは自前）</td><td class="ok">24時間いつでも</td><td>◎ 徒歩圏から出発</td><td class="ok">会員なら最有力</td></tr>
+<tr><td>ニコニコレンタカー 中野野方店（西武新宿線 野方駅・新宿から約15分）</td><td>パッソ 990cc（コンパクト）</td><td class="ok">あり</td><td>11,000円〜（免責補償別・確定額は予約画面）</td><td class="ng">貸出なしの表示</td><td>20:00（要確認）</td><td>◎ 環七→高井戸ICが近い</td><td class="ok">コスパ最良</td></tr>
+<tr><td>ニッポンレンタカー 羽田空港（京急 穴守稲荷駅 徒歩4分・送迎あり）</td><td>ライズ／ノートe-POWER級（スタンダードプラス）</td><td class="ok">あり</td><td>20,240円（免責補償別）</td><td class="ok">追加可</td><td>20:00で表示</td><td>△ 都心から羽田へ往復1h、首都高経由</td><td class="ok">安心＋車格◎</td></tr>
+<tr><td>ニコニコレンタカー 東大和向原店／八王子楢原店（立川・八王子駅から車5〜10km）</td><td>ヴィッツ（コンパクト）</td><td class="ok">あり</td><td>11,000円〜</td><td class="ng">貸出なしの表示</td><td>20:00（要確認）</td><td>△ 駅から遠いが中央道IC至近</td><td class="un">中央線沿線に住んでいれば有力</td></tr>
+<tr><td>日産レンタカー 羽田空港</td><td>エクストレイル e-POWER（SUV）</td><td class="ok">あり</td><td>40,590円〜（免責別）</td><td class="ok">追加可</td><td>20:00</td><td>△</td><td class="un">車格は最良だが高い</td></tr>
+<tr><td>日産レンタカー 西新宿山手通り（西新宿五丁目駅）</td><td>セレナ 8人乗り</td><td class="ok">あり</td><td>47,960円（免責別）</td><td class="ok">追加可</td><td>19:00まで</td><td>○</td><td class="un">2人には過大</td></tr>
+<tr><td>トヨタ 新宿三丁目駅前／ニッポン 新宿南口／オリックス 秋葉原24h・新橋・錦糸町／楽天横断（新宿・東京駅・渋谷・池袋・立川八王子）</td><td>コンパクト〜SUV</td><td class="ng">満車・在庫なし</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="ng">×</td></tr>
+</tbody></table></div>
+
+<div class="pick">
+  <div class="best"><b>第1候補：タイムズカー（カーシェア）ベーシック</b><span class="price">約19,000円</span><small>ガソリン・保険・ETC車載器込みでこの額。<b>返却が24時間可</b>なので、23日は諏訪で夕食→20時以降に小仏通過という渋滞回避が使える（48時間パックにしても+1,100円）。条件は「会員であること」と「近所のステーションに空車があること」。未会員なら今夜の入会が明朝に間に合うか公式の入会案内で確認。三井のカーシェアーズ・オリックスカーシェアも同様の仕組みで、既に会員のものがあればそれを優先。</small></div>
+  <div><b>第2候補：ニコニコ 中野野方店 パッソ</b><span class="price">約13,000〜15,000円＋ガソリン約5,000円</span><small>基本11,000円〜＋免責補償の見込み。合計ではカーシェアとほぼ同額で、車格は下、ETC貸出なしの表示（車載器の有無を電話確認）、返却20:00まで。カーシェアが取れないときの保険として今夜電話で確保。</small></div>
+  <div><b>第3候補：ニッポンレンタカー 羽田空港</b><span class="price">約24,000〜26,000円＋ガソリン</span><small>大手・ETC可・車格◎。羽田までの往復と首都高経由で朝30分余計。返却20:00。</small></div>
+</div>
+
+<div class="cost">
+  <b>2日間の車の費用目安（2人合計・高速代は共通で約9,500円＝高井戸〜諏訪 約4,300円＋松本〜高井戸 約5,200円、連休は休日割引なし）</b>
+  <table><tbody>
+  <tr><th>タイムズカー</th><td>約19,000円＋高速 ＝ <b>約28,500円</b></td><td>ガソリン込み。返却時刻自由</td></tr>
+  <tr><th>ニコニコ 野方</th><td>約14,000円＋ガソリン約5,000円＋高速 ＝ <b>約28,500円</b></td><td>ほぼ同額。返却20:00まで</td></tr>
+  <tr><th>ニッポン 羽田</th><td>約25,000円＋ガソリン約5,000円＋高速 ＝ <b>約39,500円</b></td><td>車格と安心を買う</td></tr>
+  <tr><th>参考：あずさ＋現地レンタカー</th><td>約43,000円</td><td>あずさ往復2名 約27,000円＋茅野レンタカー 約16,000円（いずれも満席・満車で不可）</td></tr>
+  </tbody></table>
+  <small>カーシェアの距離料金は走行距離で変わります。案1-C（北横岳を追加）は約560kmで+1,200円、帰りに諏訪へ寄る渋滞回避ルートは+40kmで+800円ほど。</small>
+</div>
+
+<h2 class="sec">2. 車ならではの3つの回り方（案1をもとに再設計）</h2>
+<p class="sub">共通の前提：宿はローザンヌ（車山高原・残2・現地払い）／ボヌール（白樺湖・残1）／尾上の湯旅館（浅間温泉・残2）のいずれか。返却が20:00のため、23日は「小仏渋滞（11〜20時）に80分かかる」前提で組んでいます。</p>
+
+<!-- 案1-A -->
+<section class="plan top" id="a">
+  <h2>案1-A　一筆書き：車山高原泊 → 霧ヶ峰 → 美ヶ原 → 松本ICから帰る<span class="stars">★★★★★</span></h2>
+  <div class="tags"><span class="tag g">両日 指数A</span><span class="tag g">宿 ローザンヌ 残2</span><span class="tag g">戻りのない一筆書き</span><span class="tag m">23日 小仏+80分</span></div>
+  <p class="why">車山・霧ヶ峰・美ヶ原を無駄なく1本で回る基本形。22日は渋滞ピークを外して出発し、到着後の車山は「リフト往復」で軽く。23日にビーナスラインを走り切り、美ヶ原をしっかり歩く。</p>
+  <div class="day"><h3>9/22（火）</h3>
+  <ul class="tl">
+    <li><span class="t">8:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>野方でレンタカー受取 → 環七 → 高井戸ICから中央道</b><small>日野15km・相模湖10kmの渋滞（6〜14時）に入るため、通常2.5hに+1h。9:30発に遅らせても到着は同程度</small></div></li>
+    <li><span class="t">10:30</span><span class="ic spot"><svg viewBox="0 0 24 24"><path d="M4 3v8a4 4 0 008 0V3M8 3v18M18 3c-2 2-2 6 0 8v10"/></svg></span><div class="b"><b>双葉SAで休憩</b></div></li>
+    <li><span class="t">12:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>諏訪IC → 大門街道 → 白樺湖 → 車山高原（45分）</b><small>白樺湖畔で昼食</small></div></li>
+    <li><span class="t">13:30</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>車山高原スカイパーク：リフト2本で山頂 → 展望 → 下り（往復50分・予約不要）</b><small>元気なら山頂から車山肩へ下って歩く周回に変更（2h）</small></div></li>
+    <li><span class="t">15:30</span><span class="ic stay"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></span><div class="b"><b>ホテルローザンヌ チェックイン（38,000円・2食付・現地払い）</b><small>貸切温泉 → フルコース。駐車場無料</small></div></li>
+  </ul></div>
+  <div class="day"><h3>9/23（水・祝）</h3>
+  <ul class="tl">
+    <li><span class="t">8:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>宿発 → 霧ヶ峰 八島湿原 駐車場（20分）</b><small>展望台まで5分。木道を歩くなら1周1.5h（歩く日を1日に絞るなら展望のみ）</small></div></li>
+    <li><span class="t">9:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>和田峠 → 美ヶ原高原美術館・道の駅（1h）</b><small>和田峠〜八島湿原は雨量規制区間。当日朝に松本建設事務所X（@nagano_matsuken）を確認、規制時は白樺湖〜武石経由（+30分）</small></div></li>
+    <li><span class="t">10:00</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>牛伏山 → 美しの塔 → 王ヶ頭 → 王ヶ鼻 往復（2〜2.5h・平坦）</b></div></li>
+    <li><span class="t">12:30</span><span class="ic spot"><svg viewBox="0 0 24 24"><path d="M4 3v8a4 4 0 008 0V3M8 3v18M18 3c-2 2-2 6 0 8v10"/></svg></span><div class="b"><b>道の駅で昼食</b></div></li>
+    <li><span class="t">13:15</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>アザレアライン → 三城 → 松本IC（1h）→ 長野道・中央道</b><small>小仏20kmで+80分。18:30頃 高井戸IC</small></div></li>
+    <li><span class="t">19:15</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>【レンタカーの場合】給油 → 野方で返却（20:00まで）</b></div></li>
+    <li><span class="t">別案</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>【カーシェアの場合】渋滞回避ルート：美ヶ原 14:00発 → ビーナスライン → 諏訪（16:00）で日帰り温泉と夕食 → 19:30 諏訪IC → 小仏を20時半頃通過 → 22:30 ステーション返却</b><small>美ヶ原の滞在が1時間延び、八島湿原の木道も歩ける。48時間パックに変更（+1,100円）、返却予定を22:30以降に設定しておく（遅れると2倍料金）</small></div></li>
+  </ul></div>
+  <div class="warn"><b>成立条件</b>　ローザンヌの予約（当日10時まで受付・カード不可）と、車の確保（カーシェアの空車、またはレンタカーの営業時間・ETC確認）。</div>
+</section>
+
+<!-- 案1-B -->
+<section class="plan" id="b">
+  <h2>案1-B　松本泊：車山・霧ヶ峰 → 浅間温泉泊 → 美ヶ原を朝一番に歩いて早めに帰る<span class="stars">★★★★</span></h2>
+  <div class="tags"><span class="tag g">両日 指数A</span><span class="tag g">宿 尾上の湯 4.8点・残2</span><span class="tag g">23日の帰りが最も早い</span><span class="tag b">22日の運転が長い</span></div>
+  <p class="why">23日を「美ヶ原を朝一で歩いて11時に下山」にすると、小仏のピーク前（13時）に近い時間帯を抜けられ、返却20:00の制約に最も余裕がある。老舗温泉旅館と松本城を入れたい人向け。</p>
+  <div class="day"><h3>9/22（火）</h3>
+  <ul class="tl">
+    <li><span class="t">8:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>受取 → 中央道 → 12:00 諏訪IC → 車山肩（45分）</b></div></li>
+    <li><span class="t">13:00</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>車山肩 → 車山山頂 往復（1.5h）→ 八島湿原 展望（20分）</b></div></li>
+    <li><span class="t">15:30</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>ビーナスライン → 和田峠 → 武石 → 松本 浅間温泉（1.5〜2h）</b><small>美ヶ原経由でも同程度。夕暮れの高原を走る</small></div></li>
+    <li><span class="t">17:30</span><span class="ic stay"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></span><div class="b"><b>尾上の湯旅館 チェックイン（37,400円・2食付・残2）</b><small>源泉かけ流し・会席。到着が遅れる場合は宿に連絡</small></div></li>
+  </ul></div>
+  <div class="day"><h3>9/23（水・祝）</h3>
+  <ul class="tl">
+    <li><span class="t">7:30</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>宿発 → 美鈴湖経由 美ヶ原自然保護センター（1h）</b><small>松本側の駐車場。高原内は一般車不可</small></div></li>
+    <li><span class="t">8:30</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>王ヶ鼻 → 王ヶ頭 → 美しの塔 往復（2〜2.5h）</b><small>朝は空気が澄み北アルプスが見えやすい</small></div></li>
+    <li><span class="t">11:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>下山 → 松本市街で昼食（松本城を外から30分）→ 12:30 松本IC</b></div></li>
+    <li><span class="t">12:30</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>長野道・中央道 → 小仏（+80分）→ 17:30頃 高井戸IC</b></div></li>
+    <li><span class="t">18:15</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>給油 → 返却（20:00に1.5hの余裕）</b></div></li>
+  </ul></div>
+  <div class="warn"><b>注意</b>　22日は運転が計5.5h。車山を「リフト往復」にすれば1時間短縮できる。</div>
+</section>
+
+<!-- 案1-C -->
+<section class="plan" id="c">
+  <h2>案1-C　早出で欲張る：北横岳も登る → 白樺湖泊 → 美ヶ原<span class="stars">★★★</span></h2>
+  <div class="tags"><span class="tag g">22日 北横岳もA</span><span class="tag g">宿 ボヌール フレンチ＋温泉・残1</span><span class="tag b">5時台出発</span><span class="tag b">2日とも歩く</span></div>
+  <p class="why">車の強みは「早朝に出れば渋滞の前に抜けられる」こと。5:30に出ると相模湖を渋滞が伸びる前に通過でき、午前中に北横岳（ロープウェイ＋往復2.5h）まで登れる。体力に余裕があり、両日とも歩きたい人向け。</p>
+  <div class="day"><h3>9/22（火）</h3>
+  <ul class="tl">
+    <li><span class="t">5:30</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>受取（前日夜に借りておく）→ 中央道</b><small>ニコニコ野方は20時閉店のため前日21日夜に受取。台風通過中なので当日朝の受取なら8:00開店に合わせ7:00発でも可（相模湖+30分）</small></div></li>
+    <li><span class="t">8:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>諏訪IC → 北八ヶ岳ロープウェイ 駐車場（40分）</b></div></li>
+    <li><span class="t">9:00</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>ロープウェイ → 坪庭 → 北横岳（2480m）往復 2.5h</b><small>登山指数は6時以降A。ロープウェイは予約不要、混雑時10分間隔</small></div></li>
+    <li><span class="t">12:30</span><span class="ic spot"><svg viewBox="0 0 24 24"><path d="M4 3v8a4 4 0 008 0V3M8 3v18M18 3c-2 2-2 6 0 8v10"/></svg></span><div class="b"><b>蓼科湖畔で昼食 → 白樺湖 → 車山高原（40分）</b></div></li>
+    <li><span class="t">14:00</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>車山高原スカイパーク リフト往復（50分）</b><small>疲れていれば省略</small></div></li>
+    <li><span class="t">15:30</span><span class="ic stay"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></span><div class="b"><b>オーベルジュ ボヌール（白樺湖）チェックイン（41,800円・2食付・残1）</b><small>信州フレンチ＋温泉ジャクジー。取れなければローザンヌ</small></div></li>
+  </ul></div>
+  <div class="day"><h3>9/23（水・祝）</h3>
+  <ul class="tl">
+    <li><span class="t">8:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>白樺湖 → 霧ヶ峰（車窓・八島湿原展望）→ 和田峠 → 道の駅美ヶ原（1h20分）</b></div></li>
+    <li><span class="t">9:30</span><span class="ic walk"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3 1 4M9 12l3-3 3 2 3-1"/></svg></span><div class="b"><b>牛伏山 → 美しの塔 → 王ヶ頭 往復（2h）</b><small>前日の疲れがあれば牛伏山だけ30分</small></div></li>
+    <li><span class="t">12:00</span><span class="ic spot"><svg viewBox="0 0 24 24"><path d="M4 3v8a4 4 0 008 0V3M8 3v18M18 3c-2 2-2 6 0 8v10"/></svg></span><div class="b"><b>道の駅で昼食</b></div></li>
+    <li><span class="t">13:00</span><span class="ic car"><svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="b"><b>松本IC → 中央道 → 小仏（+80分）→ 18:15 高井戸 → 19:00 返却</b></div></li>
+  </ul></div>
+  <div class="warn"><b>注意</b>　前夜受取は台風の暴風雨の中での引き取りになるため、当日8:00受取（相模湖+30分、北横岳を12:00スタートに）が現実的。その場合は車山リフトを省略。</div>
+</section>
+
+<div class="note">
+  <b>今夜のうちにやること（予約はご自身で）</b>
+  <ul>
+    <li>宿：ローザンヌ（案1-A/C）または尾上の湯（案1-B）を電話かじゃらんで確保。ローザンヌは現地払いのみ・前日キャンセル70%。</li>
+    <li>車：①カーシェア会員ならアプリで9/22 8:00〜9/23 22:30の空車を検索して予約（48時間パック）。②未会員または空車なしなら、ニコニコ中野野方店に電話で「営業時間・ETC車載器の有無・免責補償込みの総額」を確認して予約。③それも取れなければニッポンレンタカー羽田。両方押さえる場合はキャンセル料の有無を確認。</li>
+    <li>ETCカード・運転免許・現金（ローザンヌ用）・防寒着（標高2000mは朝10℃）。</li>
+    <li>出発前（22日朝）：NEXCO中日本の通行止め、長野県松本建設事務所X（ビーナスライン雨量規制）、車山TODAY・北八ヶ岳ロープウェイの当日運行表示。</li>
+  </ul>
+</div>
+</div>
+
+</body>
+</html>
